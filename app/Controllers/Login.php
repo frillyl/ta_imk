@@ -16,7 +16,7 @@ class Login extends BaseController
     {
         $data = [
             'title' => 'SnapFoodie',
-            'sub'   => 'Login',
+            'sub'   => 'Login'
         ];
         return view('v_login', $data);
     }
@@ -28,22 +28,23 @@ class Login extends BaseController
                 'label' => 'Username',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Harus diisi.'
+                    'required' => '{field} Required.'
                 ]
             ],
             'password' => [
                 'label' => 'Password',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Harus diisi.'
+                    'required' => '{field} Required.'
                 ]
-            ],
+            ]
         ])) {
             $username = $this->request->getPost('username');
             $password = $this->request->getPost('password');
             $cek_user = $this->ModelLogin->login_user($username);
             if ($cek_user != '') {
                 if (password_verify($password, $cek_user['password'])) {
+                    session()->set('id_user', $cek_user['id_user']);
                     session()->set('nm_user', $cek_user['nm_user']);
                     session()->set('username', $cek_user['username']);
                     session()->set('email', $cek_user['email']);
@@ -52,22 +53,33 @@ class Login extends BaseController
                     session()->set('gender', $cek_user['gender']);
                     session()->set('profile_pic', $cek_user['profile_pic']);
 
-                    return redirect()->to(base_url('dashboard'));
+                    return redirect()->to(base_url('home'));
                 } else {
-                    session()->setFlashdata('pesan', 'Gagal Login. Username atau Password yang Anda Masukkan Salah.');
+                    session()->setFlashdata('pesan', 'Login failed. The Username and Password you entered are incorrect.');
                     return redirect()->to(base_url('login'));
                 }
             } else {
-                session()->setFlashdata('pesan', 'Gagal Login. Akun Anda Tidak Ditemukan.');
+                session()->setFlashdata('pesan', 'Login failed. Account not found.');
                 return redirect()->to(base_url('login'));
             }
         } else {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('login'));
         }
     }
 
     public function logout()
     {
-        session()->remove(['nm_user', 'username', 'email', 'phone_num', 'bio', 'gender', 'profile_pic']);
+        session()->remove('log');
+        session()->remove('id_user');
+        session()->remove('nm_user');
+        session()->remove('username');
+        session()->remove('email');
+        session()->remove('phone_num');
+        session()->remove('bio');
+        session()->remove('gender');
+        session()->remove('profile_pic');
+        session()->setFlashdata('success', 'Logout Successfully.');
+        return redirect()->to(base_url());
     }
 }

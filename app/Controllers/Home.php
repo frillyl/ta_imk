@@ -13,9 +13,19 @@ class Home extends BaseController
     {
         $data = [
             'title' => 'SnapFoodie',
-            'sub' => 'Home',
-            'isi' => 'v_index'
+            'sub'   => 'Home',
+            'isi'   => 'v_index'
         ];
-        return view('layout/v_wrapper', $data);
+        return view('/layout/v_wrapper', $data);
+    }
+
+    public function index_afterlogin()
+    {
+        $data = [
+            'title' => 'SnapFoodie',
+            'sub'   => 'Home',
+            'isi'   => 'v_home'
+        ];
+        return view('/layout/v_wrapper', $data);
     }
 }

@@ -29,12 +29,18 @@
             </form>
         </div>
     </li>
-    <li class="nav-item mr-2">
-        <a href="<?= base_url('register') ?>" type="button" class="btn btn-block button-register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a href="<?= base_url('login') ?>" type="button" class="btn btn-block button-login">Login</a>
-    </li>
+    <?php if (empty(session('id_user'))) { ?>
+        <li class="nav-item mr-2">
+            <a href="<?= base_url('register') ?>" type="button" class="btn btn-block button-register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a href="<?= base_url('login') ?>" type="button" class="btn btn-block button-login">Login</a>
+        </li>
+    <?php } else { ?>
+        <li class="nav-item">
+            <a href="<?= base_url('logout') ?>" type="button" class="btn btn-block btn-danger">Logout</a>
+        </li>
+    <?php } ?>
 </ul>
 </nav>
 <!-- /.navbar -->

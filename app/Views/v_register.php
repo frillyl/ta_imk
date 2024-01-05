@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Log in (v2)</title>
+    <title><?= $title ?> | <?= $sub ?></title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/template/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/template/dist/css/adminlte.min.css">
+
     <style>
         .button-register {
             border: 2px solid #fd7e14;
@@ -36,17 +37,17 @@
             color: #FFFFFF;
         }
     </style>
+
 </head>
 
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <!-- /.login-logo -->
+<body class="hold-transition register-page">
+    <div class="register-box">
         <div class="card">
             <div class="card-header text-center">
-                <a href="<?= base_url() ?>/public/template/index2.html" class="h1"><b>SnapFoodie</b><br>Login</a>
+                <a href="<?= base_url() ?>/public/template/index2.html" class="h1"><b>SnapFoodie</b> Register</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Register a new account</p>
                 <?php
                 if (!empty(session()->getFlashdata('error'))) { ?>
                     <div class="alert alert-danger" role="alert">
@@ -79,12 +80,36 @@
                     echo '</div>';
                 }
                 ?>
-                <?php echo form_open('login/auth') ?>
+                <?php echo form_open('register/add') ?>
                 <div class="input-group mb-3">
-                    <input type="text" name="username" class="form-control" placeholder="Username/Email/Phone Number">
+                    <input type="text" name="nm_user" class="form-control" placeholder="Full Name">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" name="username" class="form-control" placeholder="Username">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" name="phone_num" class="form-control" placeholder="Phone Number">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-phone"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Email">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
                         </div>
                     </div>
                 </div>
@@ -96,29 +121,32 @@
                         </div>
                     </div>
                 </div>
+                <div class="input-group mb-3">
+                    <input type="password" name="password_conf" class="form-control" placeholder="Retype password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-4">
-                        <a href="<?= base_url('register') ?>" class="btn btn-block button-login">
-                            Register
+                        <a href="<?= base_url('login') ?>" class="btn btn-block button-login">
+                            Login
                         </a>
                     </div>
                     <!-- /.col -->
                     <div class="col-8">
-                        <button type="submit" class="btn btn-block button-register">Login</button>
+                        <button type="submit" class="btn btn-block button-register">Register</button>
                     </div>
                     <!-- /.col -->
                 </div>
                 <?php echo form_close() ?>
-
-                <p class="mt-1">
-                    <a href="forgot-password.html">I forgot my password</a>
-                </p>
             </div>
-            <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
+            <!-- /.form-box -->
+        </div><!-- /.card -->
     </div>
-    <!-- /.login-box -->
+    <!-- /.register-box -->
 
     <!-- jQuery -->
     <script src="<?= base_url() ?>/public/template/plugins/jquery/jquery.min.js"></script>
