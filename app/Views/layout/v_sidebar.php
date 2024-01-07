@@ -24,7 +24,7 @@
                     <?php } ?>
                 </div>
                 <div class="info">
-                    <a href="<?= base_url('profile') ?>" class="d-block"><?= session('nm_user') ?></a>
+                    <a href="<?= base_url('myprofile') ?>" class="d-block"><?= session('nm_user') ?></a>
                 </div>
             </div>
         <?php } else { ?>

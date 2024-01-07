@@ -42,6 +42,7 @@ $routes->get('/login', 'Login::index');
 $routes->post('/login/auth', 'Login::cek_login');
 $routes->get('/logout', 'Login::logout');
 $routes->get('/home', 'Home::index_afterlogin');
+$routes->get('/myprofile', 'MyProfile::index');
 
 /*
  * --------------------------------------------------------------------
