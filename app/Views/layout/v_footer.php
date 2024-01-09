@@ -61,6 +61,57 @@
     }, 3000);
 </script>
 
+<!-- Active Class -->
+<script type="text/javascript">
+    const currentLocation = location.href;
+    const menuItem = document.querySelectorAll('li a');
+    const menuLength = menuItem.length
+    for (let i = 0; i < menuLength; i++) {
+        if (menuItem[i].href === currentLocation) {
+            menuItem[i].className = "nav-link active"
+        }
+    }
+</script>
+
+<!-- Page specific script -->
+<script>
+    $(function() {
+        // Summernote
+        $('#summernote').summernote()
+
+        // CodeMirror
+        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+            mode: "htmlmixed",
+            theme: "monokai"
+        });
+    })
+</script>
+
+<script>
+    $(function() {
+        // Summernote
+        $('#summernote1').summernote()
+
+        // CodeMirror
+        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+            mode: "htmlmixed",
+            theme: "monokai"
+        });
+    })
+</script>
+
+<script>
+    $(function() {
+        // Summernote
+        $('#summernote2').summernote()
+
+        // CodeMirror
+        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+            mode: "htmlmixed",
+            theme: "monokai"
+        });
+    })
+</script>
 </body>
 
 </html>

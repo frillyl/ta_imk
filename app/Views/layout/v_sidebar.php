@@ -35,7 +35,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <?php if (empty(session('id_user'))) { ?>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>" class="nav-link active">
+                        <a href="<?= base_url() ?>" class="nav-link">
                             <i class="nav-icon fa-solid fa-house"></i>
                             <p>
                                 Home
@@ -44,7 +44,7 @@
                     </li>
                 <?php } else { ?>
                     <li class="nav-item">
-                        <a href="<?= base_url('home') ?>" class="nav-link active">
+                        <a href="<?= base_url('home') ?>" class="nav-link">
                             <i class="nav-icon fa-solid fa-house"></i>
                             <p>
                                 Home

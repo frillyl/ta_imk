@@ -48,5 +48,26 @@
             background-color: transparent;
             border: 2px solid #fd7e14;
         }
+
+        .button-post {
+            border: 2px solid #fd7e14;
+            background-color: #fd7e14;
+            color: #FFFFFF;
+        }
+
+        .button-post:hover {
+            background-color: transparent;
+            border: 2px solid #fd7e14;
+        }
+
+        .button-readRecipe {
+            border: 2px solid #fd7e14;
+            color: #000000;
+        }
+
+        .button-readRecipe:hover {
+            background-color: #fd7e14;
+            color: #FFFFFF;
+        }
     </style>
 </head>
